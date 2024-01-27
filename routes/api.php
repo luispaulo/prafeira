@@ -24,10 +24,14 @@ Route::get('/version', function () {
     return "Laravel na versao:". $laravel::VERSION;
 });
 
-Route::get('/empresas', [EmpresaController::class, 'index']);
+// EMPRESA 
+Route::get('/empresa', [EmpresaController::class, 'index']);
 Route::get('/empresas/{id}', [EmpresaController::class, 'show']);
 Route::get('/empresas/create', [EmpresaController::class, 'create']);
 Route::post('/empresas', [EmpresaController::class, 'store']);
 Route::get('/empresas/{id}/edit', [EmpresaController::class, 'edit']);
 Route::put('/empresas/{id}', [EmpresaController::class, 'update']);
 Route::delete('/empresas/{id}', [EmpresaController::class, 'destroy']);
+
+// PESSOA 
+Route::get('/pessoa', [EmpresaController::class, 'getPessoa']);

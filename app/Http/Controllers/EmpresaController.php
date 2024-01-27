@@ -4,12 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Empresa;
+use App\Models\Pessoa;
 
 class EmpresaController extends Controller
 {
     public function index()
     {
-        return Empresa::all();
+        $empresas = Empresa::with('pessoas','pessoas.vendas')->get();
+
+        return $empresas;
+    }
+
+    public function getPessoa()
+    {
+        return Pessoa::all();
     }
 
     public function show($id)

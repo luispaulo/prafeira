@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('password_reset_tokens', function (Blueprint $table) {
-            $table->string('email', 191)->notnull();
-            $table->string('token', 191)->notnull();
+            $table->string('email',191)->notnull();
+            $table->string('token',191)->notnull();
             $table->primary('email');
             $table->timestamp('created_at')->nullable();
         });
 
-        DB::statement('ALTER TABLE password_reset_tokens CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;');
+        
     }
 
     /**
