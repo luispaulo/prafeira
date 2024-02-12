@@ -33,7 +33,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy']);
     // Rotas relacionadas à empresa
-    Route::get('/empresas', [EmpresaController::class, 'index']);
+    // Route::get('/empresas', [EmpresaController::class, 'index']);
     Route::get('/empresas/{id}', [EmpresaController::class, 'show']);
     Route::get('/empresas/create', [EmpresaController::class, 'create']);
     Route::post('/empresas', [EmpresaController::class, 'store']);
