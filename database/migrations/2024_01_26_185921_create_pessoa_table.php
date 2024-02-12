@@ -22,6 +22,11 @@ return new class extends Migration
             $table->date('data_desligamento')->nullable();
             $table->timestamps();
             $table->unsignedBigInteger('empresa_id');
+            $table->string('name');
+            $table->string('email', 191)->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
             $table->foreign('empresa_id')->references('id')->on('empresa');
         });
     }
