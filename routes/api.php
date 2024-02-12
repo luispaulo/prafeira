@@ -18,6 +18,7 @@ use App\Http\Controllers\AuthenticatedSessionController;
 
 Route::post('/login', [AuthenticatedSessionController::class, 'store']);
 
+Route::get('/empresas', [EmpresaController::class, 'index']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
