@@ -8,6 +8,15 @@ use App\Models\Pessoa;
 
 class EmpresaController extends Controller
 {
+
+    /**
+     * @OA\Get(
+     *     path="/api/empresas",
+     *     tags={"Empresa"},
+     *     summary="Retorna empresa",
+     *     @OA\Response(response="200", description="Sucesso")
+     * )
+     */
     public function index()
     {
         $empresas = Empresa::with('pessoas','pessoas.vendas')->get();

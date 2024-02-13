@@ -10,7 +10,6 @@ use App\Models\Pessoa;
 
 class AuthenticatedSessionController extends Controller
 {
-    // ...
 
     /**
      * Handle an authentication attempt.
@@ -19,6 +18,23 @@ class AuthenticatedSessionController extends Controller
      * @return \Illuminate\Http\Response
      *
      * @throws \Illuminate\Validation\ValidationException
+     */
+    /**
+     * @OA\Post(
+     *     path="/api/login",
+     *     tags={"Autenticacao"},
+     *     summary="Fazer login",
+     *     @OA\RequestBody(
+     *         required=true,
+     *         description="Dados de login",
+     *         @OA\JsonContent(
+     *             required={"email", "password"},
+     *             @OA\Property(property="email", type="string", format="email", example="user@example.com"),
+     *             @OA\Property(property="password", type="string", format="password", example="secret")
+     *         )
+     *     ),
+     *     @OA\Response(response="200", description="Sucesso")
+     * )
      */
     public function store(Request $request)
     {
@@ -40,6 +56,21 @@ class AuthenticatedSessionController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
+     */
+    /**
+     * @OA\Post(
+     *     path="/api/logout",
+     *     tags={"Autenticacao"},
+     *     summary="Fazer logout",
+     *     @OA\Parameter(
+     *         name="Authorization",
+     *         in="header",
+     *         required=true,
+     *         description="Token de autenticação (Bearer)",
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Response(response="200", description="Sucesso")
+     * )
      */
     public function destroy(Request $request)
     {
